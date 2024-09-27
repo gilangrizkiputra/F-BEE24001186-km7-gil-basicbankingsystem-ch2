@@ -41,3 +41,53 @@ class BankingSystem extends BankAccount {
     });
   }
 }
+
+let account = new BankingSystem("Gilang", "12345678", 1000);
+
+function main() {
+  try {
+    account.accountInfo();
+    console.log(
+      "\nSelamat datang di ATM Bank berikut adalah pilihan yang bisa anda lakukan :"
+    );
+    console.log("1. Deposit");
+    console.log("2. Withdraw");
+    console.log("3. Exit");
+    console.log("=================");
+
+    rl.question("Masukkan pilihan anda: ", (choice) => {
+      switch (choice) {
+        case "1":
+          rl.question("Masukkan nominal : Rp. ", (amount) => {
+            account.deposit(parseInt(amount));
+            setTimeout(() => {
+              main();
+            }, 1500);
+          });
+          break;
+        case "2":
+          rl.question("Masukkan nominal : Rp. ", (amount) => {
+            account
+              .withdraw(parseInt(amount))
+              .then((resolve) => console.log(resolve))
+              .catch((reject) => console.log(reject));
+            setTimeout(() => {
+              main();
+            }, 1500);
+          });
+          break;
+        case "3":
+          console.log("Sampai jumpa!");
+          rl.close();
+          break;
+        default:
+          console.log("Pilihan yang anda masukkan salah");
+          main();
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+main();
