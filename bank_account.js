@@ -4,6 +4,10 @@ class BankAccount {
     this.accountNumber = accountNumber;
     this.balance = balance;
   }
+
+  deposit(amount) {
+    return (this.balance += amount);
+  }
 }
 
 
