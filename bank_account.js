@@ -1,10 +1,12 @@
 class BankAccount {
-  withdraw(amount) {
-    if (amount > this.balance) {
-      throw new Error("Gagal melakukan penarikan, saldo tidak mencukupi");
-    }
+  constructor(accountName, accountNumber, balance) {
+    this.accountName = accountName;
+    this.accountNumber = accountNumber;
+    this.balance = balance;
+  }
 
-    return (this.balance -= amount);
+  deposit(amount) {
+    return (this.balance += amount);
   }
 }
 
