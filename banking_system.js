@@ -42,17 +42,17 @@ class BankingSystem extends BankAccount {
   }
 }
 
-let account = new BankingSystem("Gilang", "12345678", 1000);
+let account = new BankingSystem("Gilang", "12345678", 5000);
 
 function main() {
   try {
-    account.accountInfo();
     console.log(
       "\nSelamat datang di ATM Bank berikut adalah pilihan yang bisa anda lakukan :"
     );
     console.log("1. Deposit");
     console.log("2. Withdraw");
-    console.log("3. Exit");
+    console.log("3. Check Balance");
+    console.log("4. Exit");
     console.log("=================");
 
     rl.question("Masukkan pilihan anda: ", (choice) => {
@@ -77,6 +77,12 @@ function main() {
           });
           break;
         case "3":
+          account.accountInfo();
+          setTimeout(() => {
+            main();
+          }, 1500);
+          break;
+        case "4":
           console.log("Sampai jumpa!");
           rl.close();
           break;
