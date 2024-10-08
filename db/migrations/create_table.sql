@@ -86,7 +86,7 @@ CREATE INDEX idx_transactions_on_transaction_date ON transactions(transaction_da
 DROP TABLE customers;
 DROP TABLE accounts; 
 DROP TABLE transactions;
-DROP TABLE PROCEDURE withdraw;
-DROP TABLE PROCEDURE deposit;
+DROP PROCEDURE IF EXISTS withdraw;
+DROP PROCEDURE IF EXISTS deposit;
 DROP INDEX idx_customers_on_name;
 DROP INDEX idx_transactions_on_transaction_date;
