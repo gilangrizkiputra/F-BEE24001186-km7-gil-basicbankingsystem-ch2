@@ -25,7 +25,7 @@ CREATE TABLE accounts(
 CREATE TABLE transactions(
 	id BIGSERIAL PRIMARY KEY NOT NULL,
 	amount BIGINT NOT NULL,
-	created_date TIMESTAMP NOT NULL DEFAULT NOW(),
+	transaction_date TIMESTAMP NOT NULL DEFAULT NOW(),
 	type VARCHAR(50) NOT NULL,
 	status VARCHAR(50) NOT NULL,
 	account_id INT NOT NULL,
@@ -35,9 +35,6 @@ CREATE TABLE transactions(
 -- ALTER TABLE
 ALTER TABLE customers -- accounts/transactions
 ADD COLUMN deleted_at TIMESTAMP ;
-
-ALTER TABLE transactions
-RENAME COLUMN created_date TO transaction_date;
 
 -- PROCEDURE
 CREATE OR REPLACE PROCEDURE withdraw(
